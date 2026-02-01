@@ -65,7 +65,7 @@ This reactive approach avoids precomputed paths and allows real-time adaptation.
 ### Build Steps
 
 ```bash
-git clone https://github.com/MystifiedMedal/minecraft-automated-agent.git
+git clone https://github.com/MystifiedMedal/minecraft-block-auto-navigator.git
 cd minecraft-automated-agent
 ```
 
@@ -104,7 +104,7 @@ These are intended for:
 - educational use
 
 
-[Download here](https://github.com/MystifiedMedal/minecraft-automated-agent/releases/download/jar/BlockPartyHelper-1.93.jar)
+[Download here](https://github.com/MystifiedMedal/minecraft-block-auto-navigator/releases/download/jar/BlockPartyHelper-1.93.jar)
 
 
 ### Testing Environment:
