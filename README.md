@@ -13,6 +13,17 @@ I built this project to learn and experiment with:
 - Translating abstract game state into concrete movement actions
 - Debugging automation in noisy, unpredictable conditions
 
+## Origin
+
+The project originally began as an accessibility experiment: a simple visual guide
+to help players identify the correct block using directional cues.
+
+Over time, additional features were added for experimentation and personal challenge,
+gradually evolving the project into a fully automated agent. Development and testing
+were performed in controlled environments (private servers), where the agent was used
+to stress-test logic, timing, and correction behavior rather than for competitive play.
+
+
 Minecraft minigames provide a constrained but non-trivial environment for testing these ideas.
 
 ## How It Works (High Level)
@@ -45,6 +56,15 @@ This project is intended for **educational and experimental purposes only**.
 It is not meant to be deployed in environments where automation violates fair play or community rules.
 
 The goal is to study autonomous behavior in interactive systems, not to gain unfair advantages.
+
+## Usage Notice
+
+This repository is provided as-is for educational and experimental purposes.
+Using automation or modified clients on public servers may violate server rules.
+
+You are responsible for how and where this code is used.
+The author does not encourage or endorse misuse in competitive or rule-restricted environments.
+
 
 ## Future Improvements
 
