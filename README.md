@@ -1,75 +1,116 @@
-# Automated Agent for Block / Pixel Party (Minecraft)
+# Minecraft Automated Agent (Forge 1.8.9)
 
-This project explores automated agent behavior in a real-time, event-driven game environment using Minecraft as a sandbox.  
-The agent detects a dynamically changing target state and navigates the player toward it under strict timing constraints.
+This project is an experimental **automated agent** built for Minecraft minigames such as **Block Party / Pixel Party**.  
+It explores real-time decision-making in a live, event-driven environment under strict tick and latency constraints.
 
-This is a **proof-of-concept** focused on systems design and decision-making, not a competitive gameplay tool.
+The project began as an accessibility-focused navigation aid and gradually evolved into a more general automated system for experimentation and self-challenge.
 
-## Motivation
+This is a **proof of concept**, not a competitive gameplay tool.
 
-I built this project to learn and experiment with:
-- Event-driven logic in a live environment
-- Real-time decision-making under latency and tick constraints
-- Translating abstract game state into concrete movement actions
-- Debugging automation in noisy, unpredictable conditions
+---
 
-## Origin
+## Origin & Evolution
 
-The project originally began as an accessibility experiment: a simple visual guide
-to help players identify the correct block using directional cues.
+The original idea was simple:  
+provide directional guidance (arrows) to help visually impaired players orient toward the correct block.
 
-Over time, additional features were added for experimentation and personal challenge,
-gradually evolving the project into a fully automated agent. Development and testing
-were performed in controlled environments (private servers), where the agent was used
-to stress-test logic, timing, and correction behavior rather than for competitive play.
+Over time, additional features were added:
+- automatic target detection
+- continuous correction under timing changes
+- increasingly autonomous movement logic
 
+Eventually, the project became an automated agent capable of challenging me on my own test servers, turning it into a sandbox for studying autonomous behavior rather than an assistive overlay alone.
+
+---
+
+## Core Ideas Explored
+
+This project focuses on:
+- event-driven logic in a real-time environment
+- per-tick **sense → decide → act** control loops
+- handling noisy game state and network latency
+- translating abstract targets into concrete player movement
 
 Minecraft minigames provide a constrained but non-trivial environment for testing these ideas.
 
+---
+
 ## How It Works (High Level)
 
-The agent follows a simple control loop:
+Every game tick, the agent runs a simple control loop:
 
 1. **Sense**  
-   Reads the relevant game state (e.g. target block / color for the current round).
+   Read the relevant game state (e.g. target block or color for the current round).
 
 2. **Decide**  
-   Determines the optimal movement direction based on the detected target and current player position.
+   Compute the optimal movement direction based on the player’s current position and the detected target.
 
 3. **Act**  
-   Issues movement inputs to guide the player toward the correct block.
+   Issue movement inputs to guide the player.
 
 4. **Correct**  
-   Continuously re-evaluates state to adjust for timing changes, latency, or incorrect assumptions.
+   Continuously re-evaluate assumptions to adapt to timing shifts, latency, or incorrect detections.
 
-This loop repeats every tick, allowing the agent to react in real time rather than relying on precomputed paths.
+This reactive approach avoids precomputed paths and allows real-time adaptation.
 
-## Testing Environment
+---
 
-- Tested primarily on **private servers**
-- Also tested on a **public server with explicit staff permission**
-- Not designed or intended for use on public competitive servers without consent
+## Build & Setup (From Source)
 
-## Ethics & Scope
+### Requirements
+- Java **JDK 8**
+- Git
+- Internet connection (Gradle will download dependencies)
 
-This project is intended for **educational and experimental purposes only**.
-It is not meant to be deployed in environments where automation violates fair play or community rules.
+### Build Steps
 
-The goal is to study autonomous behavior in interactive systems, not to gain unfair advantages.
+```bash
+git clone https://github.com/MystifiedMedal/minecraft-automated-agent.git
+cd minecraft-automated-agent
+```
 
-## Usage Notice
+Linux / macOS
+```bash
+./gradlew setupDecompWorkspace
+./gradlew build
+```
 
-This repository is provided as-is for educational and experimental purposes.
-Using automation or modified clients on public servers may violate server rules.
+Windows
+```bash
+gradlew.bat setupDecompWorkspace
+gradlew.bat build
+```
 
-You are responsible for how and where this code is used.
-The author does not encourage or endorse misuse in competitive or rule-restricted environments.
+After a successful build, the compiled mod will be located in:
+
+```bash
+build/libs/
+```
+Copy the generated .jar file into your Minecraft Forge 1.8.9 mods folder.
 
 
-## Future Improvements
+## Prebuilt JAR (Optional)
 
-- Better target detection robustness
-- Smarter correction logic under high latency
-- Cleaner abstraction between sensing, decision, and control layers
-- Support for additional game modes or environments
+For convenience, prebuilt .jar files may be provided under Releases.
 
+These are intended for:
+
+- testing
+
+- experimentation
+
+- private servers
+
+- educational use
+- 
+
+If you are banned or penalized for using this mod on public servers, that responsibility is yours.
+
+
+### Testing Environment:
+
+Primarily tested on private servers
+
+Also tested on a friend's server with explicit permission
+
+Not designed for use on competitive public servers without consent
